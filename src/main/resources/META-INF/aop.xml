@@ -1,0 +1,13 @@
+<!DOCTYPE aspectj PUBLIC
+        "-//AspectJ//DTD//EN" "http://www.eclipse.org/aspectj/dtd/aspectj.dtd">
+<aspectj>
+	<weaver>
+		<!-- only weave classes in our application-specific packages -->
+		<include within="com.capgemini.spring.service.*" />
+		<include within="com.capgemini.spring.aop.*" />
+	</weaver>
+	<aspects>
+		<!-- weave in just this aspect -->
+		<aspect name="com.capgemini.spring.aop.CallMonitoringAspect" />
+	</aspects>
+</aspectj>

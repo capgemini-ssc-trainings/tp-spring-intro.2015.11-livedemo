@@ -1,9 +1,19 @@
 package com.capgemini.spring.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "BOOK")
 public class BookEntity {
 
+    @Id
     private Long id;
+    @Column(name = "title", length = 50, nullable = false)
     private String title;
+    @Column(nullable = false)
     private String authors;
 
     public BookEntity() {

@@ -4,10 +4,11 @@
 	<weaver>
 		<!-- only weave classes in our application-specific packages -->
 		<include within="com.capgemini.spring.service.*" />
+    <include within="com.capgemini.spring.service.impl.*" />
 		<include within="com.capgemini.spring.aop.*" />
 	</weaver>
 	<aspects>
 		<!-- weave in just this aspect -->
-		<aspect name="com.capgemini.spring.aop.CallMonitoringAspect" />
+		<aspect name="com.capgemini.spring.aop.ProfilingAspect" />
 	</aspects>
 </aspectj>

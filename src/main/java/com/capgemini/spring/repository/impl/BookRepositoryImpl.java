@@ -33,7 +33,6 @@ public class BookRepositoryImpl implements SearchByCriteriaRepository {
             }
             query.where(whereBuilder);
         }
-
         return query.list(bookEntity);
     }
 }

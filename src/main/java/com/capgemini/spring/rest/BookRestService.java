@@ -1,17 +1,23 @@
 package com.capgemini.spring.rest;
 
+import com.capgemini.spring.model.BookEntity;
+import com.capgemini.spring.service.BookService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BookRestService {
 
-    @RequestMapping(value = "/book", method = RequestMethod.GET)
-    public String findBook(@RequestParam(value = "bookId", required = false) Long bookId) {
-        return "My First Book";
+    @Autowired
+    private BookService bookService;
+
+    @RequestMapping(value = "/book/{bookId}", method = RequestMethod.GET)
+    public BookEntity findBook(@PathVariable("bookId") Long bookId) {
+        return bookService.findBookById(bookId);
     }
 
-    @RequestMapping(value = "/book", method = RequestMethod.POST)
-    public String addBook() {
+    @RequestMapping(value = "/book", method = RequestMethod.POST, consumes = "application/json")
+    public String addBook(@RequestBody BookEntity bookEntity) {
         return "My First Book";
     }
 
